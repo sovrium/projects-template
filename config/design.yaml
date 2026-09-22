@@ -12,11 +12,11 @@
 # from COLOUR, not from type.
 #
 # WHY THESE KEYS AND NOT OTHERS
-#   `theme.colors` accepts any kebab-case key, but only the keys in
+#   `design.colors` accepts any kebab-case key, but only the keys in
 #   `COLOR_TO_SV_TOKEN` (src/infrastructure/css/theme/theme-generators.ts) emit
 #   the `--sv-*` platform tokens as well as `--color-*`. Those are the ones every
 #   prestyled island already consumes, so declaring them repaints the timeline,
-#   the kanban, the data-table, the KPI tiles and the chart with no class changes
+#   the kanban, the table, the KPI tiles and the chart with no class changes
 #   anywhere in this config. A non-role key such as `brand-blue` emits
 #   `--color-*` only and does nothing until something references it — which is
 #   how a template can declare a page of pretty colours and still render
@@ -60,7 +60,7 @@ colors:
 
   # Three text weights, not one. The islands read `--sv-fg-muted` for column
   # headers and `--sv-fg-subtle` for timestamps; leaving them unset makes every
-  # data-table render its chrome at full body contrast and lose its hierarchy.
+  # table render its chrome at full body contrast and lose its hierarchy.
   foreground: '#0f172a'
   foreground-muted: '#475569'
   foreground-subtle: '#64748b'
@@ -75,7 +75,7 @@ colors:
   error: '#be123c'
   info: '#0369a1'
 
-# Rendered only when the app declares `theme.colorScheme` or ships a
+# Rendered only when the app declares `design.colorScheme` or ships a
 # `theme-toggle`; the stylesheet carries it either way. The compiled selector is
 # `html:is(.dark, [data-theme='dark'])`, which re-points BOTH channels — a dark
 # key left out here keeps its light value, which is the documented way to say
@@ -107,7 +107,7 @@ darkColors:
   error: '#fb7185'
   info: '#38bdf8'
 
-borderRadius:
+radius:
   sm: 0.25rem
   md: 0.5rem
   lg: 0.75rem
